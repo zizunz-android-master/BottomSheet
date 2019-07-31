@@ -68,6 +68,10 @@ onDismiss는 ModalBottomSheet이 사라질 때 콜백을 받기 위해 오버라
 
 다음은 values/styles.xml 에 정의해 둔 Modal Bottom Sheet 의 동작을 위한 커스텀 스타일이다.
 
+다시 말하지만, 다음과 같이 커스텀 스타일을 지정해서 사용하는 것은 일반적인 Modal Bottom Sheet을 사용할 땐 필요 없지만, 좀 더 구체적인 동작을 정의해주거나 배경 모서리에 둥글게 corner radius를 주고 싶다든지 할 때 유용하다. skip해도 무관하다. 
+
+
+
 ```xml
 <style name="RoundBottomSheet" parent="Widget.Design.BottomSheet.Modal">
     <item name="android:background">@drawable/round_bottom_sheet_background</item>
@@ -84,6 +88,7 @@ onDismiss는 ModalBottomSheet이 사라질 때 콜백을 받기 위해 오버라
     <item name="android:windowIsFloating">true</item>
 </style>
 ```
+
 
 Modal BottomSheet 은 다음과 같이 띄워줄 수 있다.
 ```kotlin
