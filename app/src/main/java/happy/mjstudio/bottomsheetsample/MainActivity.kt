@@ -1,6 +1,7 @@
 package happy.mjstudio.bottomsheetsample
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,12 +16,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        initProperties()
+        initPersistentBottomSheetBehavior()
         initButtons()
     }
 
-    private fun initProperties() {
+    private fun initPersistentBottomSheetBehavior() {
         persistentBottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet_persistent)
+
+        /**
+         * 콜백을 달아줘서 PersistentBottomSheet의 상태 변경을 감지가 가능하다.
+         *
+         * Modal Style은 이런 방식보다 [BottomSheetFragmentDialog] 에서 [onDismiss] 같은 메서드를 오버라이딩 해야한다.
+         */
+        persistentBottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onSlide(p0: View, p1: Float) {
+            }
+
+            override fun onStateChanged(p0: View, state: Int) {
+                when(state) {
+                    BottomSheetBehavior.STATE_EXPANDED-> {
+
+                    }
+
+                }
+            }
+        })
     }
 
     private fun initButtons() {
